@@ -1,19 +1,28 @@
-import React, {useState} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, Text } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
   DrawerItemList,
   DrawerContentScrollView,
-  DrawerItem,
-  Dra,
-} from '@react-navigation/drawer';
-import {Gravatar} from 'react-native-gravatar';
-import {useNavigation} from '@react-navigation/native';
-import commonStyles from '../commonStyles';
-import Auth from './Auth';
+} from "@react-navigation/drawer";
+import { Gravatar } from "react-native-gravatar";
+import { useNavigation } from "@react-navigation/native";
+import commonStyles from "../commonStyles";
+import { server, showError, showSucess } from "../common";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-const Menu = props => {
-  const navigation = useNavigation();
+const Menu = ({ route, navigation }) => {
+  const { name, email } = route.params;
+
+  const logout = () => {
+    delete axios.defaults.headers.common["Authorization"];
+    AsyncStorage.removeItem("userData");
+    props.navigation.navigate("Auth");
+  };
+
   return (
     <SafeAreaProvider>
       <DrawerContentScrollView>
@@ -22,14 +31,19 @@ const Menu = props => {
           <Gravatar
             style={styles.avatar}
             options={{
-              email: ,
+              email: email,
               secure: true,
             }}
           />
           <View style={styles.useInfo}>
-            <Text style={styles.name}>{navigation.getParent('email')}</Text>
+            <Text style={styles.name}>{}</Text>
             <Text style={styles.email}>{}</Text>
           </View>
+          <TouchableOpacity onPress={logout}>
+            <View style={styles.logoutIcon}>
+              <Icon name="sign-out" size={30} color="#800" />
+            </View>
+          </TouchableOpacity>
         </View>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
@@ -41,10 +55,10 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
     borderBottomWidth: 1,
-    borderColor: '#DDD',
+    borderColor: "#DDD",
   },
   title: {
-    color: '#000',
+    color: "#000",
     fontFamily: commonStyles.fontFamily,
     fontSize: 30,
     paddingTop: 30,
@@ -60,7 +74,7 @@ const styles = StyleSheet.create({
   userInfo: {
     marginLeft: 10,
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: "#000",
   },
   name: {
     flex: 1,
@@ -73,6 +87,10 @@ const styles = StyleSheet.create({
     fontFamily: commonStyles.fontFamily,
     fontSize: 15,
     color: commonStyles.colors.subText,
+  },
+  logoutIcon: {
+    marginLeft: 10,
+    marginBottom: 10,
   },
 });
 

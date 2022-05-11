@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dino/Área de Trabalho/Desenvolvimento/curso-react-native/tasks/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h360dp-land-v13/values-h360dp-land-v13.xml",
+            "outputFile": "/home/dino/Área de Trabalho/Desenvolvimento/Tasks/mobile/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h360dp-land-v13/values-h360dp-land-v13.xml",
             "map": [
                 {
                     "source": "/home/dino/.gradle/caches/transforms-3/f05a9184797ff091550d41ce9d0208b4/transformed/material-1.1.0/res/values-h360dp-land-v13/values-h360dp-land-v13.xml",

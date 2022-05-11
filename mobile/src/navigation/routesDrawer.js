@@ -1,33 +1,38 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import Auth from '../screens/Auth';
-import TodayTasks from '../screens/TodayTasks';
-import TomorrowTasks from '../screens/TomorrowTasks';
-import WeekTasks from '../screens/WeekTasks';
-import MonthTasks from '../screens/MonthTasks';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Menu from '../screens/Menu';
-import commonStyles from '../commonStyles';
-import {navigationRef} from '../screens/Auth';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import Auth from "../screens/Auth";
+import TodayTasks from "../screens/TodayTasks";
+import TomorrowTasks from "../screens/TomorrowTasks";
+import WeekTasks from "../screens/WeekTasks";
+import MonthTasks from "../screens/MonthTasks";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Menu from "../screens/Menu";
+import commonStyles from "../commonStyles";
+import { navigationRef } from "../screens/Auth";
+import AuthOrApp from "../screens/AuthOrApp";
+
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
 const Home = () => {
   return (
-    <Drawer.Navigator drawerContent={props => <Menu {...props} />}>
+    <Drawer.Navigator
+      initialRouteName="Today"
+      drawerContent={(props) => <Menu {...props} />}
+    >
       <Drawer.Screen
         name="Today"
         component={TodayTasks}
         options={{
           headerShown: false,
-          title: 'Hoje',
+          title: "Hoje",
           drawerLabelStyle: {
             fontFamily: commonStyles.fontFamily,
-            fontWeight: 'normal',
+            fontWeight: "normal",
             fontSize: 20,
           },
-          drawerActiveTintColor: '#080',
+          drawerActiveTintColor: "#080",
         }}
       />
       <Drawer.Screen
@@ -35,14 +40,14 @@ const Home = () => {
         component={TomorrowTasks}
         options={{
           headerShown: false,
-          title: 'Amanhã',
+          title: "Amanhã",
           drawerContentStyle: Menu,
           drawerLabelStyle: {
             fontFamily: commonStyles.fontFamily,
-            fontWeight: 'normal',
+            fontWeight: "normal",
             fontSize: 20,
           },
-          drawerActiveTintColor: '#080',
+          drawerActiveTintColor: "#080",
         }}
       />
       <Drawer.Screen
@@ -50,14 +55,14 @@ const Home = () => {
         component={WeekTasks}
         options={{
           headerShown: false,
-          title: 'Semana',
+          title: "Semana",
           drawerContentStyle: Menu,
           drawerLabelStyle: {
             fontFamily: commonStyles.fontFamily,
-            fontWeight: 'normal',
+            fontWeight: "normal",
             fontSize: 20,
           },
-          drawerActiveTintColor: '#080',
+          drawerActiveTintColor: "#080",
         }}
       />
       <Drawer.Screen
@@ -65,33 +70,38 @@ const Home = () => {
         component={MonthTasks}
         options={{
           headerShown: false,
-          title: 'Mês',
+          title: "Mês",
           drawerContentStyle: Menu,
           drawerLabelStyle: {
             fontFamily: commonStyles.fontFamily,
-            fontWeight: 'normal',
+            fontWeight: "normal",
             fontSize: 20,
           },
-          drawerActiveTintColor: '#080',
+          drawerActiveTintColor: "#080",
         }}
       />
     </Drawer.Navigator>
   );
 };
 
-const routes = props => {
+const routes = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="AuthOrApp">
+        <Stack.Screen
+          name="AuthOrApp"
+          component={AuthOrApp}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Auth"
           component={Auth}
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dino/Área de Trabalho/Desenvolvimento/curso-react-native/tasks/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ne/values-ne.xml",
+            "outputFile": "/home/dino/Área de Trabalho/Desenvolvimento/Tasks/mobile/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ne/values-ne.xml",
             "map": [
                 {
                     "source": "/home/dino/.gradle/caches/transforms-3/f8cfdef18edf0f0dc80f7630fe54d7fb/transformed/core-1.6.0/res/values-ne/values-ne.xml",

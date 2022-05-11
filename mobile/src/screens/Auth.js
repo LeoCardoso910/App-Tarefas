@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import {
   ImageBackground,
   Text,
@@ -6,21 +6,22 @@ import {
   View,
   TouchableOpacity,
   Alert,
-} from 'react-native';
-import axios from 'axios';
-import AuthInput from '../components/AuthInput';
-import backgroundImage from '../../assets/imgs/login.jpg';
-import commonStyles from '../commonStyles';
-import {server, showError, showSucess} from '../common';
-import {useNavigation} from '@react-navigation/native';
+} from "react-native";
+import axios from "axios";
+import AuthInput from "../components/AuthInput";
+import backgroundImage from "../../assets/imgs/login.jpg";
+import commonStyles from "../commonStyles";
+import { server, showError, showSucess } from "../common";
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Auth = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('dino@gmail.com');
-  const [password, setPassword] = useState('123456');
-  const [confirmPassword, setConfirmPassword] = useState('');
+const Auth = ({ navigation }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [stageNew, setStageNew] = useState(false);
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   const signinOrSignup = () => {
     if (stageNew) {
       signup();
@@ -37,7 +38,7 @@ const Auth = () => {
         password: password,
         confirmPassword: confirmPassword,
       });
-      showSucess('Usuário Cadastrado!');
+      showSucess("Usuário Cadastrado!");
       setStageNew(false);
     } catch (e) {
       showError(e);
@@ -50,11 +51,14 @@ const Auth = () => {
         email: email,
         password: password,
       });
-      console.log('err0');
+      AsyncStorage.setItem("userData", JSON.stringify(res.data));
       axios.defaults.headers.common[
-        'Authorization'
+        "Authorization"
       ] = `bearer ${res.data.token}`;
-      navigation.navigate('Home', {name: name, email: email});
+      navigation.navigate("Home", {
+        name: res.data.name,
+        email: res.data.email,
+      });
     } catch (e) {
       console.log(e);
       showError(e);
@@ -62,7 +66,7 @@ const Auth = () => {
   };
 
   const validations = [];
-  validations.push(email && email.includes('@'));
+  validations.push(email && email.includes("@"));
   validations.push(password && password.length >= 6);
 
   if (stageNew) {
@@ -78,7 +82,7 @@ const Auth = () => {
       <Text style={styles.title}>Tasks</Text>
       <View style={styles.formContainer}>
         <Text style={styles.subtitle}>
-          {stageNew ? 'Crie a sua conta' : 'Informe seus dados'}
+          {stageNew ? "Crie a sua conta" : "Informe seus dados"}
         </Text>
         {stageNew && (
           <AuthInput
@@ -86,7 +90,7 @@ const Auth = () => {
             placeholder="Nome"
             value={name}
             style={styles.input}
-            onChangeText={confirm => setName(confirm)}
+            onChangeText={(confirm) => setName(confirm)}
           />
         )}
         <AuthInput
@@ -94,7 +98,7 @@ const Auth = () => {
           placeholder="E-mail"
           value={email}
           style={styles.input}
-          onChangeText={confirm => setEmail(confirm)}
+          onChangeText={(confirm) => setEmail(confirm)}
         />
         <AuthInput
           icon="lock"
@@ -102,7 +106,7 @@ const Auth = () => {
           value={password}
           style={styles.input}
           secureTextEntry={true}
-          onChangeText={confirm => setPassword(confirm)}
+          onChangeText={(confirm) => setPassword(confirm)}
         />
         {stageNew && (
           <AuthInput
@@ -111,22 +115,23 @@ const Auth = () => {
             value={confirmPassword}
             style={styles.input}
             secureTextEntry={true}
-            onChangeText={confirm => setConfirmPassword(confirm)}
+            onChangeText={(confirm) => setConfirmPassword(confirm)}
           />
         )}
         <TouchableOpacity onPress={signinOrSignup} disabled={!validForm}>
           <View style={validForm ? styles.button : styles.buttonValidForm}>
             <Text style={styles.buttonText}>
-              {stageNew ? 'Registrar' : 'Entrar'}
+              {stageNew ? "Registrar" : "Entrar"}
             </Text>
           </View>
         </TouchableOpacity>
       </View>
       <TouchableOpacity
-        style={{padding: 10}}
-        onPress={() => setStageNew(!stageNew)}>
+        style={{ padding: 10 }}
+        onPress={() => setStageNew(!stageNew)}
+      >
         <Text style={styles.buttonText}>
-          {stageNew ? 'Já possui conta?' : 'Ainda não possui conta?'}
+          {stageNew ? "Já possui conta?" : "Ainda não possui conta?"}
         </Text>
       </TouchableOpacity>
     </ImageBackground>
@@ -136,9 +141,9 @@ const Auth = () => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontFamily: commonStyles.fontFamily,
@@ -148,35 +153,35 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontFamily: commonStyles.fontFamily,
-    color: '#FFF',
+    color: "#FFF",
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 10,
   },
   formContainer: {
-    backgroundColor: 'rgba(0,0,0,0.8)',
+    backgroundColor: "rgba(0,0,0,0.8)",
     padding: 20,
-    width: '90%',
+    width: "90%",
   },
   input: {
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     marginTop: 10,
   },
   button: {
-    backgroundColor: '#080',
+    backgroundColor: "#080",
     marginTop: 10,
     padding: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonValidForm: {
-    backgroundColor: '#AAA',
+    backgroundColor: "#AAA",
     marginTop: 10,
     padding: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
     fontFamily: commonStyles.fontFamily,
-    color: '#FFF',
+    color: "#FFF",
     fontSize: 20,
   },
 });

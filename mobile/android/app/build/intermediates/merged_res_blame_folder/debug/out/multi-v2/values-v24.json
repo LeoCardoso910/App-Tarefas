@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dino/Área de Trabalho/Desenvolvimento/curso-react-native/tasks/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/home/dino/Área de Trabalho/Desenvolvimento/Tasks/mobile/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/home/dino/.gradle/caches/transforms-3/88a9e3d889b4ba78817924970fca65bc/transformed/appcompat-1.3.0/res/values-v24/values-v24.xml",

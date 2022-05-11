@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dino/Área de Trabalho/Desenvolvimento/curso-react-native/tasks/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/dino/Área de Trabalho/Desenvolvimento/Tasks/mobile/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
                     "source": "/home/dino/.gradle/caches/transforms-3/f05a9184797ff091550d41ce9d0208b4/transformed/material-1.1.0/res/values/values.xml",
@@ -73,6 +73,25 @@
                         "startOffsets": "37655,37695,38129,38439,38494,39742,39796,39848,39897,39958",
                         "endColumns": "39,46,42,54,46,53,51,48,60,49",
                         "endOffsets": "37690,37737,38167,38489,38536,39791,39843,39892,39953,40003"
+                    }
+                },
+                {
+                    "source": "/home/dino/Área de Trabalho/Desenvolvimento/Tasks/mobile/node_modules/@react-native-community/datetimepicker/android/build/intermediates/packaged_res/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2,5,8,11,14,17,20,23",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "100,303,494,691,876,1077,1266,1467",
+                        "endLines": "4,7,10,13,16,19,22,25",
+                        "endColumns": "12,12,12,12,12,12,12,12",
+                        "endOffsets": "298,489,686,871,1072,1261,1462,1651"
+                    },
+                    "to": {
+                        "startLines": "2667,2670,2681,2684,3025,3028,3031,3034",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "179841,180044,180553,180750,203816,204017,204206,204407",
+                        "endLines": "2669,2672,2683,2686,3027,3030,3033,3036",
+                        "endColumns": "12,12,12,12,12,12,12,12",
+                        "endOffsets": "180039,180230,180745,180930,204012,204201,204402,204591"
                     }
                 },
                 {
@@ -150,24 +169,7 @@
                     }
                 },
                 {
-                    "source": "/home/dino/Área de Trabalho/Desenvolvimento/curso-react-native/tasks/android/app/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endColumns": "42",
-                        "endOffsets": "54"
-                    },
-                    "to": {
-                        "startLines": "691",
-                        "startColumns": "4",
-                        "startOffsets": "44106",
-                        "endColumns": "42",
-                        "endOffsets": "44144"
-                    }
-                },
-                {
-                    "source": "/home/dino/Área de Trabalho/Desenvolvimento/curso-react-native/tasks/android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
+                    "source": "/home/dino/Área de Trabalho/Desenvolvimento/Tasks/mobile/android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
                     "from": {
                         "startLines": "6,8",
                         "startColumns": "4,4",
@@ -181,6 +183,25 @@
                         "startOffsets": "41587,41651",
                         "endColumns": "63,68",
                         "endOffsets": "41646,41715"
+                    }
+                },
+                {
+                    "source": "/home/dino/Área de Trabalho/Desenvolvimento/Tasks/mobile/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "54",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "267"
+                    },
+                    "to": {
+                        "startLines": "821",
+                        "startColumns": "4",
+                        "startOffsets": "59626",
+                        "endLines": "824",
+                        "endColumns": "12",
+                        "endOffsets": "59839"
                     }
                 },
                 {
@@ -258,44 +279,6 @@
                     }
                 },
                 {
-                    "source": "/home/dino/Área de Trabalho/Desenvolvimento/curso-react-native/tasks/node_modules/@react-native-community/datetimepicker/android/build/intermediates/packaged_res/debug/values/values.xml",
-                    "from": {
-                        "startLines": "2,5,8,11,14,17,20,23",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "100,303,494,691,876,1077,1266,1467",
-                        "endLines": "4,7,10,13,16,19,22,25",
-                        "endColumns": "12,12,12,12,12,12,12,12",
-                        "endOffsets": "298,489,686,871,1072,1261,1462,1651"
-                    },
-                    "to": {
-                        "startLines": "2667,2670,2681,2684,3025,3028,3031,3034",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "179841,180044,180553,180750,203816,204017,204206,204407",
-                        "endLines": "2669,2672,2683,2686,3027,3030,3033,3036",
-                        "endColumns": "12,12,12,12,12,12,12,12",
-                        "endOffsets": "180039,180230,180745,180930,204012,204201,204402,204591"
-                    }
-                },
-                {
-                    "source": "/home/dino/Área de Trabalho/Desenvolvimento/curso-react-native/tasks/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "54",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "267"
-                    },
-                    "to": {
-                        "startLines": "821",
-                        "startColumns": "4",
-                        "startOffsets": "59626",
-                        "endLines": "824",
-                        "endColumns": "12",
-                        "endOffsets": "59839"
-                    }
-                },
-                {
                     "source": "/home/dino/.gradle/caches/transforms-3/f8cfdef18edf0f0dc80f7630fe54d7fb/transformed/core-1.6.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,89,90,94,95,96,97,104,111,159,191,228",
@@ -367,6 +350,23 @@
                         "startOffsets": "40233",
                         "endColumns": "53",
                         "endOffsets": "40282"
+                    }
+                },
+                {
+                    "source": "/home/dino/Área de Trabalho/Desenvolvimento/Tasks/mobile/android/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "42",
+                        "endOffsets": "54"
+                    },
+                    "to": {
+                        "startLines": "691",
+                        "startColumns": "4",
+                        "startOffsets": "44106",
+                        "endColumns": "42",
+                        "endOffsets": "44144"
                     }
                 },
                 {
