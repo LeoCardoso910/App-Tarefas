@@ -5,23 +5,21 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
-  Alert,
 } from "react-native";
 import axios from "axios";
 import AuthInput from "../components/AuthInput";
 import backgroundImage from "../../assets/imgs/login.jpg";
 import commonStyles from "../commonStyles";
 import { server, showError, showSucess } from "../common";
-import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Auth = ({ navigation }) => {
+function Auth({ navigation }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [stageNew, setStageNew] = useState(false);
-  // const navigation = useNavigation();
+
   const signinOrSignup = () => {
     if (stageNew) {
       signup();
@@ -56,8 +54,8 @@ const Auth = ({ navigation }) => {
         "Authorization"
       ] = `bearer ${res.data.token}`;
       navigation.navigate("Home", {
-        name: res.data.name,
-        email: res.data.email,
+        screen: "Today",
+        params: { name: res.data.name, email: res.data.email },
       });
     } catch (e) {
       console.log(e);
@@ -136,7 +134,7 @@ const Auth = ({ navigation }) => {
       </TouchableOpacity>
     </ImageBackground>
   );
-};
+}
 
 const styles = StyleSheet.create({
   background: {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
@@ -6,17 +6,14 @@ import {
   DrawerContentScrollView,
 } from "@react-navigation/drawer";
 import { Gravatar } from "react-native-gravatar";
-import { useNavigation } from "@react-navigation/native";
+
 import commonStyles from "../commonStyles";
-import { server, showError, showSucess } from "../common";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const Menu = ({ route, navigation }) => {
-  const { name, email } = route.params;
-
+function Menu(props) {
   const logout = () => {
     delete axios.defaults.headers.common["Authorization"];
     AsyncStorage.removeItem("userData");
@@ -31,13 +28,12 @@ const Menu = ({ route, navigation }) => {
           <Gravatar
             style={styles.avatar}
             options={{
-              email: email,
-              secure: true,
+              email: props.getEmail,
             }}
           />
           <View style={styles.useInfo}>
-            <Text style={styles.name}>{}</Text>
-            <Text style={styles.email}>{}</Text>
+            <Text style={styles.name}>{props.getName}</Text>
+            <Text style={styles.email}>{props.getEmail}</Text>
           </View>
           <TouchableOpacity onPress={logout}>
             <View style={styles.logoutIcon}>
@@ -49,7 +45,7 @@ const Menu = ({ route, navigation }) => {
       </DrawerContentScrollView>
     </SafeAreaProvider>
   );
-};
+}
 
 const styles = StyleSheet.create({
   header: {
@@ -81,11 +77,14 @@ const styles = StyleSheet.create({
     fontFamily: commonStyles.fontFamily,
     fontSize: 20,
     marginBottom: 5,
+    marginLeft: 8,
     color: commonStyles.colors.mainText,
   },
   email: {
     fontFamily: commonStyles.fontFamily,
     fontSize: 15,
+    marginLeft: 8,
+    marginBottom: 10,
     color: commonStyles.colors.subText,
   },
   logoutIcon: {

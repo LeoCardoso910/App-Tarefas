@@ -9,17 +9,20 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Menu from "../screens/Menu";
 import commonStyles from "../commonStyles";
-import { navigationRef } from "../screens/Auth";
 import AuthOrApp from "../screens/AuthOrApp";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
-const Home = () => {
+const Home = ({ route }) => {
+  const getName = route.params.name;
+  const getEmail = route.params.email;
   return (
     <Drawer.Navigator
       initialRouteName="Today"
-      drawerContent={(props) => <Menu {...props} />}
+      drawerContent={(props) => (
+        <Menu {...props} getName={getName} getEmail={getEmail} />
+      )}
     >
       <Drawer.Screen
         name="Today"
@@ -84,7 +87,7 @@ const Home = () => {
   );
 };
 
-const routes = (props) => {
+const routesStack = (props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="AuthOrApp">
@@ -108,7 +111,7 @@ const routes = (props) => {
   );
 };
 
-export default routes;
+export default routesStack;
 
 // const Today = () => {
 //   return (
