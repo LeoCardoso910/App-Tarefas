@@ -31,6 +31,7 @@ const Home = ({ route }) => {
           headerShown: false,
           title: "Hoje",
           drawerLabelStyle: {
+            flex: 1,
             fontFamily: commonStyles.fontFamily,
             fontWeight: "normal",
             fontSize: 20,
@@ -46,6 +47,7 @@ const Home = ({ route }) => {
           title: "Amanhã",
           drawerContentStyle: Menu,
           drawerLabelStyle: {
+            flex: 1,
             fontFamily: commonStyles.fontFamily,
             fontWeight: "normal",
             fontSize: 20,
@@ -61,6 +63,7 @@ const Home = ({ route }) => {
           title: "Semana",
           drawerContentStyle: Menu,
           drawerLabelStyle: {
+            flex: 1,
             fontFamily: commonStyles.fontFamily,
             fontWeight: "normal",
             fontSize: 20,
@@ -76,6 +79,7 @@ const Home = ({ route }) => {
           title: "Mês",
           drawerContentStyle: Menu,
           drawerLabelStyle: {
+            flex: 1,
             fontFamily: commonStyles.fontFamily,
             fontWeight: "normal",
             fontSize: 20,

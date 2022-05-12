@@ -29,11 +29,11 @@ function Menu(props) {
             style={styles.avatar}
             options={{
               email: props.getEmail,
+              secure: true,
             }}
           />
           <View style={styles.useInfo}>
             <Text style={styles.name}>{props.getName}</Text>
-            <Text style={styles.email}>{props.getEmail}</Text>
           </View>
           <TouchableOpacity onPress={logout}>
             <View style={styles.logoutIcon}>
@@ -81,13 +81,14 @@ const styles = StyleSheet.create({
     color: commonStyles.colors.mainText,
   },
   email: {
+    flex: 1,
     fontFamily: commonStyles.fontFamily,
     fontSize: 15,
     marginLeft: 8,
-    marginBottom: 10,
     color: commonStyles.colors.subText,
   },
   logoutIcon: {
+    flex: 1,
     marginLeft: 10,
     marginBottom: 10,
   },
