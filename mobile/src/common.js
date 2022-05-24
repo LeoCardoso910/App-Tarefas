@@ -1,6 +1,6 @@
 import { Alert, Platform } from "react-native";
 
-const server = "http://192.168.1.3:3000";
+const server = "http://192.168.1.2:3000";
 
 const showError = (err) => {
   if (err.response && err.response.data) {
